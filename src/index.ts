@@ -1,6 +1,7 @@
 import PicGo from 'picgo'
 import { imageSize } from 'image-size'
 import * as path from 'path'
+// @ts-ignore
 import { PluginConfig } from 'picgo/dist/src/utils/interfaces'
 import { tinypngCompress } from './compress/tinypngweb'
 import { tinypngKeyCompress } from './compress/tinypng/index'
@@ -13,8 +14,11 @@ import { lubanforgiteeCompress } from './compress/lubanforgitee'
 //npm install /Users/hss/github/picgo-plugin-compress
 function handle(ctx: PicGo) {
   const config = ctx.getConfig('transformer.compress') || ctx.getConfig('picgo-plugin-compress')
+  // @ts-ignore
   const compress = config?.compress
+  // @ts-ignore
   const nameType = config?.nameType
+  // @ts-ignore
   const key = config.key || config.tinypngKey
 
   const tasks = ctx.input
@@ -75,12 +79,15 @@ module.exports = function (ctx: PicGo): any {
       if (!config) {
         config = {}
       }
+      // @ts-ignore
+      // @ts-ignore
       return [
         {
           name: 'compress',
           type: 'list',
           message: '选择压缩库',
           choices: Object.keys(CompressType),
+          // @ts-ignore
           default: config.compress || CompressType.luban,
           required: true,
         },
@@ -88,6 +95,7 @@ module.exports = function (ctx: PicGo): any {
           name: 'key',
           type: 'input',
           message: '申请key，不填默认使用WebApi，逗号隔开，可使用多个Key叠加使用次数',
+          // @ts-ignore
           default: config.key || config.tinypngKey || null,
           required: false,
         },
@@ -96,6 +104,7 @@ module.exports = function (ctx: PicGo): any {
           type: 'list',
           message: '是否重命名成时间戳',
           choices: Object.keys(NameType),
+          // @ts-ignore
           default: config.nameType || NameType.none,
           required: false,
         },
