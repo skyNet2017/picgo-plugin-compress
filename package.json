@@ -13,6 +13,7 @@
     "/dist"
   ],
   "scripts": {
+    "tsc": "node_modules/typescript/bin/tsc",
     "build": "tsc -p .",
     "dev": "tsc -w -p .",
     "patch": "yarn version --patch && git push origin master && git push origin --tags",
