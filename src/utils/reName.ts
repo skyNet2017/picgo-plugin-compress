@@ -7,6 +7,7 @@ export function reName(nameType: string, url: string): string {
     case NameType.timestamp:
       return `${Date.now()}-` + fileName.replace('.png', '.jpg')
     case NameType.none:
+      return `${fileName}`.replace('.png', '.jpg')
     default:
       return `${fileName}`.replace('.png', '.jpg')
   }

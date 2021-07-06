@@ -116,14 +116,14 @@ export function lubanforgiteeCompress({ ctx, info }: CompressOptions): Promise<I
 
   function compressPng(buffer: Buffer): Promise<Buffer> {
     //todo 先判断有没有透明通道
-    ctx.log.warn('luban  格式转换为jpg')
+    ctx.log.warn('luban  png格式转换为jpg')
     var buffer1: Buffer = images(buffer).encode('jpg')
     return compressJpg(buffer1, jpgQuality)
   }
 
   function compressWebP(buffer: Buffer): Promise<Buffer> {
     //todo 先判断有没有透明通道
-    ctx.log.warn('webp  格式转换为jpg')
+    ctx.log.warn('webp  不处理')
     /*return imagemin
       .buffer(buffer, {
         plugins: [mozjpeg({ quality: 70, sample: ['1x1'] })] //, optipng({ optimizationLevel: 5 })//, sample:sampleSize
