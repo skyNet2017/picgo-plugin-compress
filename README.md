@@ -29,7 +29,6 @@ nameType 是否重命名
 
   - timestamp 重命名成时间戳
 - none 不重名，默认选项
-  
 
 key 可选
 
@@ -40,6 +39,38 @@ key 可选
 
 - 打开详细窗口 > 插件设置 > 搜索 `compress` 即可安装，配置同上
 - 离线安装参考[这里](https://picgo.github.io/PicGo-Core-Doc/zh/dev-guide/deploy.html#gui%E6%8F%92%E4%BB%B6)
+
+## debug调试:
+windows
+
+通过搜索picgo.log找到数据目录
+
+![image-20210710204629556](https://gitee.com/hss012489/picbed/raw/master/picgo/image-20210710204629556.png.jpg)
+
+![image-20210710204839030](https://gitee.com/hss012489/picbed/raw/master/picgo/image-20210710204839030.png.jpg)
+
+在picgo数据目录下打开命令行,运行:
+
+ npm install D:\projects\web\picgo-plugin-compress
+
+后面的为本库的路径
+
+然后可以看到
+
+![image-20210710204816561](https://gitee.com/hss012489/picbed/raw/master/picgo/image-20210710204816561.png.jpg)
+
+ 然后会发现,整份代码都过来了,但其实只是dist起作用
+
+![image-20210710205113774](https://gitee.com/hss012489/picbed/raw/master/picgo/image-20210710205113774.png.jpg)
+
+
+
+
+
+
+
+
+
 
 ## 压缩效果对比
 

@@ -74,9 +74,9 @@ export function lubanforgiteeCompress({ ctx, info }: CompressOptions): Promise<I
   }
 
   function compressJpg(buffer: Buffer, quality: number): Promise<Buffer> {
-    if (Math.round(buffer.length / 1024) < thehold) {
+   /* if (Math.round(buffer.length / 1024) < thehold) {
       return Promise.resolve(buffer)
-    }
+    }*/
     //return Promise.resolve(buffer)
     ctx.log.warn('文件大小:' + Math.round(buffer.length / 1024) + 'k')
 
@@ -104,7 +104,7 @@ export function lubanforgiteeCompress({ ctx, info }: CompressOptions): Promise<I
 
     return imagemin
       .buffer(buffer, {
-        plugins: [mozjpeg({ quality: quality, sample: sampleSize })], //, optipng({ optimizationLevel: 5 })//, sample:sampleSize
+        plugins: [mozjpeg({ quality: quality, sample: ['1x1'] })], //, optipng({ optimizationLevel: 5 })//, sample:sampleSize
       })
       .then((buffer2) => {
         if (Math.round(buffer2.length / 1024) < thehold) {
